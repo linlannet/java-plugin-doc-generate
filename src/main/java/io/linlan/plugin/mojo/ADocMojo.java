@@ -18,6 +18,7 @@ package io.linlan.plugin.mojo;
 import com.thoughtworks.qdox.JavaProjectBuilder;
 import io.linlan.doc.builder.AdocDocBuilder;
 import io.linlan.doc.model.ApiConfig;
+import io.linlan.plugin.constant.MojoConstants;
 import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -27,7 +28,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
  * @author xingzi  2019/12/13  16:23
  */
 @Execute(phase = LifecyclePhase.COMPILE)
-@Mojo(name = "adoc", requiresDependencyResolution = ResolutionScope.COMPILE)
+@Mojo(name = MojoConstants.ADOC_MOJO, requiresDependencyResolution = ResolutionScope.COMPILE)
 public class ADocMojo extends BaseDocsGeneratorMojo {
 
     @Override
