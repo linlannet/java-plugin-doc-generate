@@ -1,37 +1,84 @@
-# doc-api
+# ll-plugin-doc-generate
 
-#### 介绍
-API网关帮助文档，包含使用方法、示例、SDK应用模式等
+<h1 align="center">Doc Generate Project</h1>
 
-#### 软件架构
-软件架构说明
+![maven](https://img.shields.io/maven-central/v/com.github.shalousun/doc-generate)
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+![closed pull requests](https://img.shields.io/github/issues-pr-closed/shalousun/doc-generate)
+![java version](https://img.shields.io/badge/JAVA-1.8+-green.svg)
+
+## Introduce
+
+doc-generate is a tool that supports both JAVA REST API and Apache Dubbo RPC interface document generation. doc generate is
+based on interface source code analysis to generate interface documents, and zero annotation intrusion. You only need to
+write Javadoc comments when developing, doc-generate can help you generate Markdown or HTML5 document. doc-generate does not
+need to inject annotations into the code like Swagger.
+
+## Features
+
+- Zero annotation, zero learning cost, only need to write standard JAVA document comments.
+- Automatic derivation based on source code interface definition, powerful return structure derivation support.
+- Support Spring MVC, Spring Boot, Spring Boot Web Flux (Not support endpoint), Feign.
+- Supports the derivation of asynchronous interface returns such as Callable, Future, CompletableFuture.
+- Support JSR-303 parameter verification specification.
+- Support for automatic generation of request examples based on request parameters.
+- Support for generating JSON return value examples.
+- Support for loading source code from outside the project to generate field comments (including the sources jar
+  package).
+- Support for generating multiple formats of documents: Markdown,HTML5,Asciidoctor,Postman Collection 2.0+,OpenAPI 3.0.
+- Support for exporting error codes and data dictionary codes to API documentation.
+- The debug html5 page fully supports file upload and download testing.
+- Support Apache Dubbo RPC.
+
+## Best Practice
+
+doc-generate + [Torna](http://torna.cn) form an industry-leading document generation and management solution, using
+doc-generate to complete Java source code analysis and extract annotations to generate API documents without intrusion, and
+automatically push the documents to the Torna enterprise-level interface document management platform.
+
+![doc-generate+torna](./images/doc-generate-torna-en.png)
+
+## Building
+
+You could build with the following commands. (Java 1.8 is required to build the master branch)
+
+```
+mvn clean install -Dmaven.test.skip=true
+```
+
+## TODO
+
+- Jakarta RS-API 2.x
+
+## License
+
+doc-generate is under the Apache 2.0 license. See
+the [LICENSE](LICENSE) file for details.
 
 
-#### 安装教程
+### 生成及使用
+```
+//生成html
+mvn -Dfile.encoding=UTF-8 doc-generate:html
+//生成markdown
+mvn -Dfile.encoding=UTF-8 doc-generate:markdown
+//生成adoc
+mvn -Dfile.encoding=UTF-8 doc-generate:adoc
+//生成postman json数据
+mvn -Dfile.encoding=UTF-8 doc-generate:postman
+// 生成 Open Api 3.0+,Since doc-generate-maven-plugin 1.1.5
+mvn -Dfile.encoding=UTF-8 doc-generate:openapi
+// 生成文档推送到Torna平台
+mvn -Dfile.encoding=UTF-8 doc-generate:torna-rest
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+// Apache Dubbo RPC文档
+// Generate html
+mvn -Dfile.encoding=UTF-8 doc-generate:rpc-html
+// Generate markdown
+mvn -Dfile.encoding=UTF-8 doc-generate:rpc-markdown
+// Generate adoc
+mvn -Dfile.encoding=UTF-8 doc-generate:rpc-adoc
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+// 生成dubbo接口文档推送到torna
+mvn -Dfile.encoding=UTF-8 doc-generate:torna-rpc
+```
