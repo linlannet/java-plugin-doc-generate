@@ -36,7 +36,7 @@ doc-generate + [Torna](http://torna.cn) form an industry-leading document genera
 doc-generate to complete Java source code analysis and extract annotations to generate API documents without intrusion, and
 automatically push the documents to the Torna enterprise-level interface document management platform.
 
-![doc-generate+torna](./images/doc-generate-torna-en.png)
+![doc-generate+torna](.img/doc-generate-torna-en.png)
 
 ## Building
 

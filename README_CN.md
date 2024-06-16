@@ -36,7 +36,7 @@ Collection2.0+、OpenAPI 3.0+的文档。
 
 doc-generate + [Torna](http://torna.cn) 组成行业领先的文档生成和管理解决方案，使用doc-generate无侵入完成Java源代码分析和提取注释生成API文档，自动将文档推送到Torna企业级接口文档管理平台。
 
-![doc-generate+torna](./images/doc-generate-torna.png)
+![doc-generate+torna](.img/doc-generate-torna.png)
 
 [doc-generate+Torna文档自动化]
 
