@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.linlan.plugin</groupId>
     <artifactId>ll-plugin-doc-generate</artifactId>
-    <version>2.3.2</version>
+    <version>2.3.3</version>
     <packaging>maven-plugin</packaging>
     <description>doc generate is a tool that supports both JAVA RESTFUL API and Apache Dubbo RPC interface document
         generation.</description>
