@@ -586,58 +586,6 @@ public final class StringUtils {
     }
 
 
-    /**
-     * compare two string to sort, null is less, the default is ignore case
-     *
-     * @param str1 string1
-     * @param str2 string2
-     * @param nullIsLess {@code null} is in front, null is less
-     * @return sort result, -1:str1 < str2, 1:str1 > str2, 0:str1 == str2
-     */
-    public static int compare(final CharSequence str1, final CharSequence str2, final boolean nullIsLess) {
-        return compareIgnoreCase(str1, str2, nullIsLess, true);
-    }
-
-    /**
-     * compare two string to sort, null is less
-     *
-     * <pre>
-     * compareIgnoreCase(null, null, *)     = 0
-     * compareIgnoreCase(null , "a", true)  &lt; 0
-     * compareIgnoreCase(null , "a", false) &gt; 0
-     * compareIgnoreCase("a", null, true)   &gt; 0
-     * compareIgnoreCase("a", null, false)  &lt; 0
-     * compareIgnoreCase("abc", "abc", *)   = 0
-     * compareIgnoreCase("abc", "ABC", *)   = 0
-     * compareIgnoreCase("a", "b", *)       &lt; 0
-     * compareIgnoreCase("b", "a", *)       &gt; 0
-     * compareIgnoreCase("a", "B", *)       &lt; 0
-     * compareIgnoreCase("A", "b", *)       &lt; 0
-     * compareIgnoreCase("ab", "abc", *)    &lt; 0
-     * </pre>
-     *
-     * @param str1 string1
-     * @param str2 string2
-     * @param nullIsLess {@code null} is in front, null is less
-     * @param isIgnoreCase if ignore case
-     * @return sort result, -1:str1 < str2, 1:str1 > str2, 0:str1 == str2
-     */
-    public static int compareIgnoreCase(final CharSequence str1, final CharSequence str2, final boolean nullIsLess, final boolean isIgnoreCase) {
-        if (str1 == str2) {
-            return 0;
-        }
-        if (str1 == null) {
-            return nullIsLess ? -1 : 1;
-        }
-        if (str2 == null) {
-            return nullIsLess ? 1 : -1;
-        }
-        if (isIgnoreCase) {
-            return str1.toString().compareToIgnoreCase(str2.toString());
-        }else{
-            return str1.toString().compareTo(str2.toString());
-        }
-    }
 
     /**
      * split source string by sep char<br>
@@ -646,7 +594,7 @@ public final class StringUtils {
      *
      * @param source source string
      * @param spt separator
-     * @return List<String>
+     * @return a list
      */
     public static List<String> split(final CharSequence source, final char spt) {
         return split(source, spt, 0);
@@ -660,7 +608,7 @@ public final class StringUtils {
      * @param source source string
      * @param spt separator
      * @param limit limit
-     * @return List<String>
+     * @return a list
      */
     public static List<String> split(final CharSequence source, final char spt, final int limit) {
         if (source == null) {
@@ -760,7 +708,7 @@ public final class StringUtils {
      * repeat char to make up equals length or other
      *
      * @param c the repeat char
-     * @param count the count of repeat, if count <=0, return ""
+     * @param count the count of repeat, if count lt 0, return ""
      * @return {@link String} the string of source input
      */
     public static String repeat(final char c, final int count) {
@@ -779,7 +727,7 @@ public final class StringUtils {
      * repeat string to make up equals length or other
      *
      * @param source the repeat string
-     * @param count the count of repeat, if count <=0, return ""
+     * @param count the count of repeat, if count lt 0, return ""
      * @return {@link String} the string of source input
      */
     public static String repeat(final CharSequence source, final int count) {
@@ -1366,144 +1314,10 @@ public final class StringUtils {
     }
 
     /**
-     * @see #join(Object[] array, String sep, String prefix)
-     */
-    public static String join(Object[] array, String sep) {
-        return join(array, sep, null);
-    }
-
-    /**
-     * @see #join(Object[] array, String sep, String prefix)
-     */
-    public static String join(Collection list, String sep) {
-        return join(list, sep, null);
-    }
-
-    /**
-     * @see #join(Object[] array, String sep, String prefix)
-     */
-    public static String join(Collection list, String sep, String prefix) {
-        Object[] array = list == null ? null : list.toArray();
-        return join(array, sep, prefix);
-    }
-
-    /**
-     * 以指定的分隔符来进行字符串元素连接
-     * <p>
-     * 例如有字符串数组array和连接符为逗号(,)
-     * <code>
-     * String[] array = new String[] { "hello", "world", "wanjingtai", "cloud","storage" };
-     * </code>
-     * 那么得到的结果是:
-     * <code>
-     * hello,world,wanjingtai,cloud,storage
-     * </code>
-     * </p>
-     *
-     * @param array  需要连接的对象数组
-     * @param sep    元素连接之间的分隔符
-     * @param prefix 前缀字符串
-     * @return 连接好的新字符串
-     */
-    public static String join(Object[] array, String sep, String prefix) {
-        if (array == null) {
-            return "";
-        }
-
-        int arraySize = array.length;
-
-        if (arraySize == 0) {
-            return "";
-        }
-
-        if (sep == null) {
-            sep = "";
-        }
-
-        if (prefix == null) {
-            prefix = "";
-        }
-
-        StringBuilder buf = new StringBuilder(prefix);
-        for (int i = 0; i < arraySize; i++) {
-            if (i > 0) {
-                buf.append(sep);
-            }
-            buf.append(array[i] == null ? "" : array[i]);
-        }
-        return buf.toString();
-    }
-
-    /**
-     * 以json元素的方式连接字符串中元素
-     * <p>
-     * 例如有字符串数组array
-     * <code>
-     * String[] array = new String[] { "hello", "world", "wanjingtai", "cloud","storage" };
-     * </code>
-     * 那么得到的结果是:
-     * <code>
-     * "hello","world","wanjingtai","cloud","storage"
-     * </code>
-     * </p>
-     *
-     * @param array 需要连接的字符串数组
-     * @return 以json元素方式连接好的新字符串
-     */
-    public static String jsonJoin(String[] array) {
-        int arraySize = array.length;
-        int bufSize = arraySize * (array[0].length() + 3);
-        StringBuilder buf = new StringBuilder(bufSize);
-        for (int i = 0; i < arraySize; i++) {
-            if (i > 0) {
-                buf.append(',');
-            }
-
-            buf.append('"');
-            buf.append(array[i]);
-            buf.append('"');
-        }
-        return buf.toString();
-    }
-
-    /**
-     * remove the prefix of source
-     *
-     * @param source source string
-     * @param prefix prefix
-     * @return {@link String} the string of source input
-     */
-    public static String removePrefix(CharSequence source, CharSequence prefix) {
-        return removePrefix(source, prefix, false);
-    }
-
-    /**
-     * remove the prefix of source
-     *
-     * @param source source string
-     * @param prefix prefix
-     * @param isIgnoreCase isIgnoreCase true to ignore case
-     * @return {@link String} the string of source input
-     */
-    public static String removePrefix(CharSequence source, CharSequence prefix, boolean isIgnoreCase) {
-        if (isEmpty(source) || isEmpty(prefix)) {
-            return source.toString();
-        }
-
-        final String dest = source.toString();
-        if (startsWith(dest, prefix, isIgnoreCase)) {
-            //if prefix match, remove prefix
-            return dest.substring(prefix.length());
-        }
-        //the whole source
-        return dest;
-    }
-
-    /**
      * get the subString of source string from fromIndex to toIndex<br>
      * index is begin from 0, the last char is -1<br>
      * if the fromIndex == toIndex, return "" <br>
-     * if fromIndex or toIndex < 0, use the length of source string
+     * if fromIndex or toIndex lt 0, use the length of source string
      * @see StringUtils#substring
      * substring("abcdefghijk", 2, 3): c <br>
      * substring("abcdefghijk", 2, -3): cdefghi <br>
@@ -1516,11 +1330,12 @@ public final class StringUtils {
         int len = source.length();
         return substring(source, fromIndex, len);
     }
+
     /**
      * get the subString of source string from fromIndex to toIndex<br>
      * index is begin from 0, the last char is -1<br>
      * if the fromIndex == toIndex, return "" <br>
-     * if fromIndex or toIndex < 0, use the length of source string
+     * if fromIndex or toIndex lt 0, use the length of source string
      * @see StringUtils#substring
      * substring("abcdefghijk", 2, 3): c <br>
      * substring("abcdefghijk", 2, -3): cdefghi <br>
@@ -1591,8 +1406,8 @@ public final class StringUtils {
     }
 
     /**Object类型转String类型
-     * @param source
-     * @return
+     * @param source source
+     * @return a string
      */
     public static String toString(Object source) {
         try {
@@ -1645,47 +1460,6 @@ public final class StringUtils {
             }
         }
         return str.toString();
-    }
-
-    /**
-     *
-     * @param str
-     * @param delimiters
-     * @param trimTokens
-     * @param ignoreEmptyTokens
-     * @return
-     */
-    public static String[] tokenizeToStringArray(
-            String str, String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
-
-        if (str == null) {
-            return null;
-        }
-
-        StringTokenizer st = new StringTokenizer(str, delimiters);
-        List<String> tokens = new ArrayList<String>();
-        while (st.hasMoreTokens()) {
-            String token = st.nextToken();
-            if (trimTokens) {
-                token = token.trim();
-            }
-            if (!ignoreEmptyTokens || token.length() > 0) {
-                tokens.add(token);
-            }
-        }
-        return toStringArray(tokens);
-    }
-
-    /**
-     *
-     * @param collection
-     * @return
-     */
-    public static String[] toStringArray(Collection<String> collection) {
-        if (collection == null) {
-            return null;
-        }
-        return collection.toArray(new String[collection.size()]);
     }
 
 }
