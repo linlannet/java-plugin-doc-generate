@@ -93,8 +93,8 @@
     "value":"${token}",//不设置默认null
     "required": true,//是否必须
     "since": "-",//什么版本添加的改请求头
-    "pathPatterns": "/api/app/**, /api/third/**",//请看https://gitee.com/smart-doc-team/smart-doc/wikis/请求头高级配置?sort_id=4178978
-    "excludePathPatterns":"/app/open/**"//请看https://gitee.com/smart-doc-team/smart-doc/wikis/请求头高级配置?sort_id=4178978
+    "pathPatterns": "/api/app/**, /api/third/**",//请看https://gitee.com/linlanio/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
+    "excludePathPatterns":"/app/open/**"//请看https://gitee.com/linlanio/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
   }],
   "requestParams": [ //公共请求参数(通过拦截器处理的场景)，@since 2.2.3,没有需求请不要设置
     {
