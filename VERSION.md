@@ -5,7 +5,7 @@ Linlan 接口文档自动化生成插件，支持JAVA代码，按照规范要求
 ## 版本历史
 ```
 
-2.3.3           2024-09-06    基于smart-doc，保持java1.8版本
+2.3.3           2024-09-06    基于smart-doc，保持java1.8版本，增加smart-doc模板示例
         StringUtils内方法扩展，增加replace等方法，在生成时用到替换方法
         修改资源的路径为https://gitee.com/linlanio/ll-plugin-doc-generate和https://github.com/linlanio/ll-plugin-doc-generate
         
