@@ -1,10 +1,8 @@
 # ll-plugin-doc-generate
 
-<h1 align="center">Doc Generate Project</h1>
+<h1 align="center">base on smart-doc project</h1>
 
-![maven](https://img.shields.io/maven-central/v/com.github.shalousun/doc-generate)
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-![closed pull requests](https://img.shields.io/github/issues-pr-closed/shalousun/doc-generate)
 ![java version](https://img.shields.io/badge/JAVA-1.8+-green.svg)
 
 ## Introduce
