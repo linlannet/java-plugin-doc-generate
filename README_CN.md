@@ -1,4 +1,4 @@
-# ll-plugin-doc-generate
+# java-plugin-doc-generate
 
 <h1 align="center">基于smart-doc开源项目</h1>
 

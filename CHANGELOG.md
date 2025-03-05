@@ -50,7 +50,7 @@
 
 - 更新日期: 2021-08-08
 - 更新内容：
-  1. 修复字典码推送torna错误 #https://gitee.com/linlannet/ll-plugin-doc-generate/issues/I43JQR。
+  1. 修复字典码推送torna错误 #https://gitee.com/linlannet/java-plugin-doc-generate/issues/I43JQR。
   2. 新增jsr303 @size和@length支持。
   3. 修改html的模板样式错误。
   4. 修复postman错误#I41G2E 。
@@ -64,8 +64,8 @@
   2. 支持请求头常量设置解析。
   3. 支持使用JsonIgnoreProperties和JSONType注解去忽略多字段。
   4. 修改部分文档设置allInOneDocFileName无效的问题,#131 。
-  5. 修复dubbo rpc文档模板格式错误 #https://gitee.com/linlannet/ll-plugin-doc-generate/issues/I40ZGE .
-  6. 支持配置添加拦截器中设置全局请求参数，#https://gitee.com/linlannet/ll-plugin-doc-generate/issues/132 .
+  5. 修复dubbo rpc文档模板格式错误 #https://gitee.com/linlannet/java-plugin-doc-generate/issues/I40ZGE .
+  6. 支持配置添加拦截器中设置全局请求参数，#https://gitee.com/linlannet/java-plugin-doc-generate/issues/132 .
   7. 修复部分类型mock未推送到torna的问题。
   
 #### 版本号：2.2.2
@@ -431,7 +431,7 @@
        collection时的header问题[gitee #I1EX42](https://gitee.com/sunyurepository/doc-generate/issues/I1EX42)
     3. 优化doc-generate-maven-plugin加载source的过滤，支持使用通配符来过滤。
     4. 首次发布gradle插件，发布doc-generate-gradle-plugin插件，
-    5. 修复通用泛型解析出错[git #28](https://gitee.com/linlannet/ll-plugin-doc-generate/issues/28)。
+    5. 修复通用泛型解析出错[git #28](https://gitee.com/linlannet/java-plugin-doc-generate/issues/28)。
 
 #### 版本号：1.8.5
 
@@ -450,7 +450,7 @@
 - 更新日期: 2020-03-30
 - 更新内容：
     1. Controller新增时候@ignore
-       tag,可适应该tag忽略不需要生成文档的controller[git #24](https://gitee.com/linlannet/ll-plugin-doc-generate/issues/24)。
+       tag,可适应该tag忽略不需要生成文档的controller[git #24](https://gitee.com/linlannet/java-plugin-doc-generate/issues/24)。
     2. 参数中包含 HttpSession时doc-generate卡主，[gitee #I1CA9M](https://gitee.com/sunyurepository/doc-generate/issues/I1CA9M)
     3. 解决一些复杂分组场景doc-generate报错的问题[gitee #I1CPSM](https://gitee.com/sunyurepository/doc-generate/issues/I1CPSM)。
     4. 解决doc-generate-maven-plugin插件读取配置乱码问题。

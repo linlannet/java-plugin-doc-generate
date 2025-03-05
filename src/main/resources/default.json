@@ -6,7 +6,7 @@
   "coverOld": true,
   "packageFilters": "",
   "md5EncryptedHtmlName": false,
-  "projectName": "ll-plugin-doc-generate",
+  "projectName": "java-plugin-doc-generate",
   "skipTransientField": true,
   "dataDictionaries": [
     {

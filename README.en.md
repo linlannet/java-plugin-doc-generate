@@ -1,4 +1,4 @@
-# ll-plugin-doc-generate
+# java-plugin-doc-generate
 
 <h1 align="center">base on smart-doc project</h1>
 

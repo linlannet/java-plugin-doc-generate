@@ -112,7 +112,7 @@
             <!-- 为自动生成接口文档进行扩展 -->
             <plugin>
                 <groupId>net.linlan.plugin</groupId>
-                <artifactId>ll-plugin-doc-generate</artifactId>
+                <artifactId>java-plugin-doc-generate</artifactId>
                 <version>2.3.4</version>
                 <configuration>
                     <!--指定生成文档的使用的配置文件,配置文件放在自己的项目中-->
