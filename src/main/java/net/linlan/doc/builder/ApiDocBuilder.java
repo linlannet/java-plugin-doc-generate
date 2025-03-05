@@ -1,0 +1,87 @@
+/**
+ * Copyright 2018-2023 the original author or Linlan authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package net.linlan.doc.builder;
+
+import net.linlan.doc.common.util.DateTimeUtil;
+import net.linlan.doc.factory.BuildTemplateFactory;
+import net.linlan.doc.model.ApiConfig;
+import net.linlan.doc.model.ApiDoc;
+import net.linlan.doc.template.IDocBuildTemplate;
+import com.thoughtworks.qdox.JavaProjectBuilder;
+import net.linlan.doc.constants.DocGlobalConstants;
+
+import java.util.List;
+
+/**
+ * use to create markdown doc
+ *
+ * @author yu 2019/09/20
+ */
+public class ApiDocBuilder {
+
+    private static final String API_EXTENSION = "Api.md";
+
+    private static final String DATE_FORMAT = "yyyyMMddHHmm";
+
+    /**
+     * @param config ApiConfig
+     */
+    public static void buildApiDoc(ApiConfig config) {
+        JavaProjectBuilder javaProjectBuilder = new JavaProjectBuilder();
+        buildApiDoc(config, javaProjectBuilder);
+    }
+
+    /**
+     * Only for doc-generate maven plugin and gradle plugin.
+     *
+     * @param config             ApiConfig
+     * @param javaProjectBuilder ProjectDocConfigBuilder
+     */
+    public static void buildApiDoc(ApiConfig config, JavaProjectBuilder javaProjectBuilder) {
+        DocBuilderTemplate builderTemplate = new DocBuilderTemplate();
+        builderTemplate.checkAndInit(config,false);
+        config.setAdoc(false);
+        config.setParamsDataToTree(false);
+        ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
+        IDocBuildTemplate docBuildTemplate = BuildTemplateFactory.getDocBuildTemplate(config.getFramework());
+        List<ApiDoc> apiDocList = docBuildTemplate.getApiData(configBuilder);
+        if (config.isAllInOne()) {
+            String version = config.isCoverOld() ? "" : "-V" + DateTimeUtil.long2Str(System.currentTimeMillis(), DATE_FORMAT);
+            String docName = builderTemplate.allInOneDocName(config,"AllInOne" + version + ".md",".md");
+            apiDocList = docBuildTemplate.handleApiGroup(apiDocList, config);
+            builderTemplate.buildAllInOne(apiDocList, config, javaProjectBuilder, DocGlobalConstants.ALL_IN_ONE_MD_TPL, docName);
+        } else {
+            builderTemplate.buildApiDoc(apiDocList, config, DocGlobalConstants.API_DOC_MD_TPL, API_EXTENSION);
+            builderTemplate.buildErrorCodeDoc(config, DocGlobalConstants.ERROR_CODE_LIST_MD_TPL, DocGlobalConstants.ERROR_CODE_LIST_MD);
+            builderTemplate.buildDirectoryDataDoc(config, javaProjectBuilder, DocGlobalConstants.DICT_LIST_MD_TPL, DocGlobalConstants.DICT_LIST_MD);
+        }
+    }
+
+    /**
+     * Generate a single controller api document
+     *
+     * @param config         (ApiConfig
+     * @param controllerName controller name
+     */
+    public static void buildSingleApiDoc(ApiConfig config, String controllerName) {
+        config.setAdoc(false);
+        JavaProjectBuilder javaProjectBuilder = new JavaProjectBuilder();
+        ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
+        DocBuilderTemplate builderTemplate = new DocBuilderTemplate();
+        builderTemplate.checkAndInit(config,false);
+        builderTemplate.buildSingleApi(configBuilder, controllerName, DocGlobalConstants.API_DOC_MD_TPL, API_EXTENSION);
+    }
+}

@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.linlan.api</groupId>
+    <groupId>net.linlan.api</groupId>
     <artifactId>api-gateway</artifactId>
     <packaging>jar</packaging>
     <version>${linlan.java.api.version}</version>
@@ -111,9 +111,9 @@
 
             <!-- 为自动生成接口文档进行扩展 -->
             <plugin>
-                <groupId>io.linlan.plugin</groupId>
+                <groupId>net.linlan.plugin</groupId>
                 <artifactId>ll-plugin-doc-generate</artifactId>
-                <version>2.3.3</version>
+                <version>2.3.4</version>
                 <configuration>
                     <!--指定生成文档的使用的配置文件,配置文件放在自己的项目中-->
                     <configFile>./src/main/resources/smart-doc.json</configFile>
@@ -124,20 +124,19 @@
                         <!--格式为：groupId:artifactId;参考如下-->
                         <exclude>com.alibaba:fastjson</exclude>
                         <exclude>org.springframework.boot:*</exclude>
-                        <include>io.linlan.api:*</include>
+                        <include>net.linlan.api:*</include>
 
                     </excludes>
                     <!--自1.0.8版本开始，插件提供includes支持,配置了includes后插件会按照用户配置加载而不是自动加载，因此使用时需要注意-->
                     <!--smart-doc能自动分析依赖树加载所有依赖源码，原则上会影响文档构建效率，因此你可以使用includes来让插件加载你配置的组件-->
                     <includes>
                         <!--格式为：groupId:artifactId;参考如下-->
-                        <include>io.linlan.tools:commons-core</include>
-                        <include>io.linlan.tools:commons-db</include>
-                        <include>io.linlan.kernel:utils-gov</include>
-                        <include>io.linlan.kernel:system-base</include>
-                        <include>io.linlan.kernel:manage-site</include>
-                        <include>io.linlan.frame:public-config</include>
-                        <include>io.linlan.view:view-comm</include>
+                        <include>net.linlan.tools:commons-core</include>
+                        <include>net.linlan.kernel:utils-gov</include>
+                        <include>net.linlan.kernel:system-base</include>
+                        <include>net.linlan.kernel:manage-site</include>
+                        <include>net.linlan.frame:public-config</include>
+                        <include>net.linlan.view:view-comm</include>
 
                     </includes>
                 </configuration>
