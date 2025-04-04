@@ -1,9 +1,9 @@
 {
-    "serverUrl": "https://api.linlan.net/ll_stage", //服务器地址,非必须。导出postman建议设置成http://{{server}}方便直接在postman直接设置环境变量
+    "serverUrl": "https://demo.linlan.io/ll_stage", //服务器地址,非必须。导出postman建议设置成http://{{server}}方便直接在postman直接设置环境变量
     "pathPrefix": "", //设置path前缀,非必须。如配置Servlet ContextPath 。@since 2.2.3
     "isStrict": false, //是否开启严格模式
     "allInOne": true,  //是否将文档合并到一个文件中，一般推荐为true
-    "outPath": "../../../doc", //指定文档的输出路径
+    "outPath": "doc", //指定文档的输出路径
     "coverOld": true,  //是否覆盖旧的文件，主要用于mardown文件覆盖
     "createDebugPage": true,//@since 2.0.0 smart-doc支持创建可以测试的html页面，仅在AllInOne模式中起作用。
     "packageFilters": "net.linlan.plat.api.*",//controller包过滤，多个包用英文逗号隔开，2.2.2开始需要采用正则：com.test.controller.*
@@ -17,7 +17,7 @@
     "responseFieldToUnderline":false,//自动将驼峰入参字段在文档中转为下划线格式,//@since 1.8.7版本开始
     "inlineEnum":true,//设置为true会将枚举详情展示到参数表中，默认关闭，//@since 1.8.8版本开始
     "recursionLimit":3,//设置允许递归执行的次数用于避免一些对象解析卡主，默认是7，正常为3次以内，//@since 1.8.8版本开始
-    "allInOneDocFileName":"api-gateway.html",//自定义设置输出文档名称, @since 1.9.0
+    "allInOneDocFileName":"api-sd-yingji.html",//自定义设置输出文档名称, @since 1.9.0
     "requestExample":"true",//是否将请求示例展示在文档中，默认true，@since 1.9.0
     "responseExample":"true",//是否将响应示例展示在文档中，默认为true，@since 1.9.0
     "urlSuffix":".do",//支持SpringMVC旧项目的url后缀,@since 2.1.0
@@ -30,7 +30,7 @@
     "debugEnvUrl":"http://127.0.0.1",//推送torna配置接口服务地址
     "tornaDebug":false,//启用会推送日志
     "ignoreRequestParams":[ //忽略请求参数对象，把不想生成文档的参数对象屏蔽掉，@since 1.9.2
-        "net.linlan.pub.base.dto.FramePubUser","net.linlan.man.member.entity.MemberAccount"
+        "net.linlan.man.web.frame.FramePubUser","net.linlan.man.third.entity.MemberAccount"
     ],
     "dataDictionaries": [{ //配置数据字典，没有需求可以不设置
         "title": "目录树结构字典", //数据字典的名称
@@ -93,8 +93,8 @@
         "value":"${token}",//不设置默认null
         "required": true,//是否必须
         "since": "-",//什么版本添加的改请求头
-        "pathPatterns": "/api/app/**",//请看https://gitee.com/linlannet/java-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
-        "excludePathPatterns":"/app/open/**"//请看https://gitee.com/linlannet/java-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
+        "pathPatterns": "/api/app/**",//请看https://gitee.com/linlanio/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
+        "excludePathPatterns":"/app/open/**"//请看https://gitee.com/linlanio/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
     }],
     "requestParams": [ //公共请求参数(通过拦截器处理的场景)，@since 2.2.3,没有需求请不要设置
         {
@@ -138,7 +138,7 @@
     }],
     "groups": [ // @since 2.2.5, 对不同的controller进行分组
         {
-            "name": "接入网关部分平台接口",
+            "name": "网关部分接口",
             "apis": "net.linlan.plat.*"
         }
     ]

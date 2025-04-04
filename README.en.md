@@ -1,11 +1,13 @@
 # java-plugin-doc-generate
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+![java version](https://img.shields.io/badge/JAVA-1.8-green.svg)
+[![maven](https://jitpack.io/v/com.gitee.linlannet/java-plugin-doc-generate.svg)](https://jitpack.io/#com.gitee.linlannet/java-plugin-doc-generate)
+
+## Introduce
 
 <h1 align="center">base on smart-doc project</h1>
 
-[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-![java version](https://img.shields.io/badge/JAVA-1.8+-green.svg)
-
-## Introduce
+[smart-doc](https://gitee.com/TongchengOpenSource/smart-doc)
 
 doc-generate is a tool that supports both JAVA REST API and Apache Dubbo RPC interface document generation. doc generate is
 based on interface source code analysis to generate interface documents, and zero annotation intrusion. You only need to
