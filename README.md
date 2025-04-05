@@ -16,6 +16,7 @@ Collection2.0+、OpenAPI 3.0+的文档。
 ## 版本历史
 ```
 
+2.3.6           2025-04-05    更新smart-doc.json内的格式
 2.3.6           2025-04-04    进行jitpack发行配置调整
 2.3.5           2025-03-05    修改工程名称为：java-plugin-doc-generate
 2.3.4           2025-03-01    调整url路径信息，linlanio修改为linlannet

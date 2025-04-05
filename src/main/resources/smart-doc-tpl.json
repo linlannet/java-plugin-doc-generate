@@ -1,12 +1,12 @@
 {
-    "serverUrl": "https://demo.linlan.io/ll_stage", //服务器地址,非必须。导出postman建议设置成http://{{server}}方便直接在postman直接设置环境变量
+    "serverUrl": "https://api.linlan.net/java_stage", //服务器地址,非必须。导出postman建议设置成http://{{server}}方便直接在postman直接设置环境变量
     "pathPrefix": "", //设置path前缀,非必须。如配置Servlet ContextPath 。@since 2.2.3
     "isStrict": false, //是否开启严格模式
     "allInOne": true,  //是否将文档合并到一个文件中，一般推荐为true
     "outPath": "doc", //指定文档的输出路径
     "coverOld": true,  //是否覆盖旧的文件，主要用于mardown文件覆盖
     "createDebugPage": true,//@since 2.0.0 smart-doc支持创建可以测试的html页面，仅在AllInOne模式中起作用。
-    "packageFilters": "net.linlan.plat.api.*",//controller包过滤，多个包用英文逗号隔开，2.2.2开始需要采用正则：com.test.controller.*
+    "packageFilters": "net.linlan.plat.api.*,net.linlan.stage.api.*",//controller包过滤，多个包用英文逗号隔开，2.2.2开始需要采用正则：com.test.controller.*
     "md5EncryptedHtmlName": false,//只有每个controller生成一个html文件是才使用
     "style":"xt256", //基于highlight.js的代码高设置,可选值很多可查看码云wiki，喜欢配色统一简洁的同学可以不设置
     "projectName": "api-doc",//配置自己的项目名称
@@ -30,11 +30,11 @@
     "debugEnvUrl":"http://127.0.0.1",//推送torna配置接口服务地址
     "tornaDebug":false,//启用会推送日志
     "ignoreRequestParams":[ //忽略请求参数对象，把不想生成文档的参数对象屏蔽掉，@since 1.9.2
-        "net.linlan.man.web.frame.FramePubUser","net.linlan.man.third.entity.MemberAccount"
+        "net.linlan.man.web.frame.FramePubUser","net.linlan.man.member.entity.MemberAccount"
     ],
     "dataDictionaries": [{ //配置数据字典，没有需求可以不设置
         "title": "目录树结构字典", //数据字典的名称
-        "enumClassName": "net.linlan.pub.base.constant.TreeTypeEnum", //数据字典枚举类名称
+        "enumClassName": "net.linlan.plat.view.system.constant.TreeTypeEnum", //数据字典枚举类名称
         "codeField": "key",//数据字典字典码对应的字段名称
         "descField": "value"//数据字典对象的描述信息字典
     }],
@@ -46,9 +46,9 @@
     }],
     "revisionLogs": [{ //文档变更记录，非必须
         "version": "1.0", //文档版本号
-        "revisionTime": "2023-07-31 10:30", //文档修订时间
+        "revisionTime": "2025-02-28 10:30", //文档修订时间
         "status": "update", //变更操作状态，一般为：创建、更新等
-        "author": "IOC", //文档变更作者
+        "author": "Linlan", //文档变更作者
         "remarks": "desc" //变更描述
     }],
     "responseParamsTable": true, //是否将响应参数表展示在文档中, 默认true，@since 2.2.5
@@ -93,8 +93,8 @@
         "value":"${token}",//不设置默认null
         "required": true,//是否必须
         "since": "-",//什么版本添加的改请求头
-        "pathPatterns": "/api/app/**",//请看https://gitee.com/linlanio/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
-        "excludePathPatterns":"/app/open/**"//请看https://gitee.com/linlanio/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
+        "pathPatterns": "/api/**",//请看https://gitee.com/linlannet/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
+        "excludePathPatterns":"/api/open/**"//请看https://gitee.com/linlannet/ll-plugin-doc-generate/wikis/请求头高级配置?sort_id=4178978
     }],
     "requestParams": [ //公共请求参数(通过拦截器处理的场景)，@since 2.2.3,没有需求请不要设置
         {
@@ -106,7 +106,7 @@
             "required": false,//是否必须
             "since": "-",//什么版本添加的改请求参数
             "pathPatterns": "*",//正则表达式过滤请求参数
-            "excludePathPatterns":"/app/third/**" //参考请求头中的用法
+            "excludePathPatterns":"/api/third/**" //参考请求头中的用法
         },{
             "name": "configQueryParam",//请求参数名称
             "type": "string",//请求参数类型
@@ -116,7 +116,7 @@
             "required": false,//是否必须
             "since": "-",//什么版本添加的改请求参数
             "pathPatterns": "*",//正则表达式过滤请求参数
-            "excludePathPatterns":"/app/page/**"
+            "excludePathPatterns":"/api/page/**"
         }
     ],
     "rpcApiDependencies":[{ // 项目开放的dubbo api接口模块依赖，配置后输出到文档方便使用者集成
@@ -138,8 +138,12 @@
     }],
     "groups": [ // @since 2.2.5, 对不同的controller进行分组
         {
-            "name": "网关部分接口",
-            "apis": "net.linlan.plat.*"
+            "name": "网关部分接口API",
+            "apis": "net.linlan.stage.api.*"
+        },{
+            "name": "一体化平台接口API",
+            "apis": "net.linlan.plat.api.*"
         }
     ]
 }
+
