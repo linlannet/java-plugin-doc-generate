@@ -18,6 +18,9 @@ Collection2.0+、OpenAPI 3.0+的文档。
 
 ```
 
+2.3.9           2025-04-06    解决由于发行到jitpack.io后groupId被覆盖，在project内无法识别的问题
+增加jitpack.yml配置，修改<artifactId>maven-plugin-plugin</artifactId>内的configuration
+
 2.3.8           2025-04-06    更新smart-doc.json内的格式，修改readme格式
 2.3.7           2025-04-06    更新smart-doc.json内的格式
 2.3.6           2025-04-05    更新smart-doc.json内的格式

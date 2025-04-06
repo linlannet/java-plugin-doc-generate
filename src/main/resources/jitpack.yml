@@ -1,0 +1,4 @@
+# jitpack.yml
+jvm:
+    # 禁止 JitPack 修改 groupId
+    overrideGroupId: false
