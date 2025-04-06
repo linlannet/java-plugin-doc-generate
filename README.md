@@ -18,7 +18,8 @@ Collection2.0+、OpenAPI 3.0+的文档。
 
 ```
 
-2.3.7           2025-04-06    更新smart-doc.json内的格式，修改readme格式
+2.3.8           2025-04-06    更新smart-doc.json内的格式，修改readme格式
+2.3.7           2025-04-06    更新smart-doc.json内的格式
 2.3.6           2025-04-05    更新smart-doc.json内的格式
 2.3.6           2025-04-04    进行jitpack发行配置调整
 2.3.5           2025-03-05    修改工程名称为：java-plugin-doc-generate
