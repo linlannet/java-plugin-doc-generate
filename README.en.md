@@ -5,7 +5,7 @@
 
 ## Introduce
 
-<h1 align="center">base on smart-doc project</h1>
+base on smart-doc project
 
 [smart-doc](https://gitee.com/TongchengOpenSource/smart-doc)
 
@@ -46,17 +46,13 @@ You could build with the following commands. (Java 1.8 is required to build the 
 mvn clean install -Dmaven.test.skip=true
 ```
 
-## TODO
-
-- Jakarta RS-API 2.x
-
 ## License
 
-doc-generate is under the Apache 2.0 license. See
-the [LICENSE](LICENSE) file for details.
+doc-generate is under the Apache 2.0 license. See the [LICENSE](LICENSE) file for details.
 
 
-### 生成及使用
+## 生成及使用
+
 ```
 //生成html
 mvn -Dfile.encoding=UTF-8 doc-generate:html

@@ -4,27 +4,33 @@
 [![maven](https://jitpack.io/v/com.gitee.linlannet/java-plugin-doc-generate.svg)](https://jitpack.io/#com.gitee.linlannet/java-plugin-doc-generate)
 
 ## 介绍
-Linlan 接口文档自动化生成插件，按照规范要求进行文档注释编写即可
-<h1 align="center">基于smart-doc开源项目</h1>
-基于smart-doc修改优化 https://gitee.com/TongchengOpenSource/smart-doc
-支持JAVA代码，保留JAVA1.8版本
+Linlan 接口文档自动化生成插件，按照规范要求进行文档注释编写即可，支持JAVA代码
+保留JAVA1.8版本，基于smart-doc修改优化
+
+[smart-doc](https://gitee.com/TongchengOpenSource/smart-doc)
+
 doc-generate是一款同时支持JAVA REST API和Apache Dubbo RPC接口文档生成的工具，doc-generate在业内率先提出基于JAVA泛型定义推导的理念，
 完全基于接口源码来分析生成接口文档，不采用任何注解侵入到业务代码中。你只需要按照java-doc标准编写注释， doc-generate就能帮你生成一个简易明了的Markdown、HTML5、Postman
 Collection2.0+、OpenAPI 3.0+的文档。
+
+
 ## 版本历史
+
 ```
 
+2.3.7           2025-04-06    更新smart-doc.json内的格式
+2.3.6           2025-04-05    更新smart-doc.json内的格式
 2.3.6           2025-04-04    进行jitpack发行配置调整
 2.3.5           2025-03-05    修改工程名称为：java-plugin-doc-generate
 2.3.4           2025-03-01    调整url路径信息，linlanio修改为linlannet
 包路径由io.linlna调整为net.linlan
 
 2.3.3           2024-09-06    基于smart-doc，保持java1.8版本
-增加smart-doc模板示例
-增加pom-tpl.xml示例
-StringUtils内方法扩展，增加replace等方法，在生成时用到替换方法
-修改资源的路径为https://gitee.com/linlannet/java-plugin-doc-generate和https://gitee.com/linlannet/java-plugin-doc-generate
-
+        增加smart-doc模板示例
+        增加pom-tpl.xml示例
+        StringUtils内方法扩展，增加replace等方法，在生成时用到替换方法
+        修改资源的路径为https://gitee.com/linlannet/java-plugin-doc-generate和https://gitee.com/linlannet/java-plugin-doc-generate
+        
 2.3.2           2024-06-16    将资源合并为一个包，调整properties文件名称，对BaseDocsGeneratorMojo文件进行更新
 
 2.3.1           2021-11-07    增加common的工具类
@@ -32,14 +38,7 @@ StringUtils内方法扩展，增加replace等方法，在生成时用到替换�
 
 ```
 
-## Introduce
-
-doc-generate is a tool that supports both JAVA REST API and Apache Dubbo RPC interface document generation. doc generate is
-based on interface source code analysis to generate interface documents, and zero annotation intrusion. You only need to
-write Javadoc comments when developing, doc-generate can help you generate Markdown or HTML5 document. doc-generate does not
-need to inject annotations into the code like Swagger.
-
-## smart doc-generate历史版本
+### smart doc-generate历史版本
 #### 版本号：2.3.0
 - 更新日期: 2021-11-07
 - 更新内容：
@@ -719,7 +718,8 @@ need to inject annotations into the code like Swagger.
     1. 手册将api-doc发布到中央仓库
 
 
-### 生成及使用
+## 生成及使用
+
 ```
 //生成html
 mvn -Dfile.encoding=UTF-8 doc-generate:html
