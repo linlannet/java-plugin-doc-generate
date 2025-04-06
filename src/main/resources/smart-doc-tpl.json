@@ -130,8 +130,6 @@
         "replacementClassName": "net.linlan.tools.model.PageRequestDto" //自定义的PageRequestDto替换Pageable做文档渲染
     }],
     "apiConstants": [{//从1.8.9开始配置自己的常量类，smart-doc在解析到常量时自动替换为具体的值，非必须
-        "constantsClassName": "net.linlan.plat.mbiz.ApiMbizConfig"
-    }, {
         "constantsClassName":"net.linlan.sys.web.KernelConstant"
     },{
         "constantsClassName":"net.linlan.plat.mbiz.ApiIntfConfig"
