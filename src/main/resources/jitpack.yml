@@ -1,4 +1,5 @@
 # jitpack.yml
 jvm:
-    # 禁止 JitPack 修改 groupId
+    # 禁用 JitPack 自动覆盖 groupId
     overrideGroupId: false
+    install: mvn clean install -DskipTests
