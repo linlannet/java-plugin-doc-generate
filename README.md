@@ -1,7 +1,6 @@
 # java-plugin-doc-generate
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 ![java version](https://img.shields.io/badge/JAVA-1.8-green.svg)
-[![maven](https://jitpack.io/v/com.gitee.linlannet/java-plugin-doc-generate.svg)](https://jitpack.io/#com.gitee.linlannet/java-plugin-doc-generate)
 
 ## 介绍
 Linlan 接口文档自动化生成插件，按照规范要求进行文档注释编写即可，支持JAVA代码
@@ -18,7 +17,10 @@ Collection2.0+、OpenAPI 3.0+的文档。
 
 ```
 
-2.3.10           2025-04-06    将groupId修改为动态绑定方式
+2.3.12          2025-04-07    新版本 发布到 https://central.sonatype.org/ 需要采用central-publishing-maven-plugin插件
+2.3.11          2025-04-06    更改发布为sonatype，增加maven-gpg-plugin
+
+2.3.10          2025-04-06    将groupId修改为动态绑定方式
 2.3.9           2025-04-06    解决由于发行到jitpack.io后groupId被覆盖，在project内无法识别的问题
 增加jitpack.yml配置，修改<artifactId>maven-plugin-plugin</artifactId>内的configuration
 
