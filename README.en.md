@@ -1,6 +1,9 @@
 # java-plugin-doc-generate
+
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 ![java version](https://img.shields.io/badge/JAVA-1.8-green.svg)
+![gitee star](https://gitee.com/linlannet/java-plugin-doc-generate/badge/star.svg)
+
 
 ## Introduce
 
